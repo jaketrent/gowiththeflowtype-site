@@ -1,3 +1,7 @@
+import { transparentize } from 'polished'
+
+import vars from './vars'
+
 const ListItem = props => (
   <div className="listItem">
     <a className="link" href={props.link}>
@@ -50,6 +54,12 @@ export default _ => (
       <p className="time">1h 44m</p>
     </div>
     <style jsx>{`
+      .table {
+        border-top: 4px solid ${transparentize(0.5, vars.colors.blue)};
+        border-bottom: 4px solid ${transparentize(0.5, vars.colors.blue)};
+        padding: ${vars.layout.spacingMedium} 0;
+        margin-bottom: ${vars.layout.spacingLarge};
+      }
       .totalContainer {
         display: flex;
         justify-content: flex-end;

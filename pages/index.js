@@ -5,6 +5,27 @@ import Head from '../src/head'
 import ToC from '../src/toc'
 import vars from '../src/vars'
 
+const ArrowLink = props => (
+  <a href={props.href} className="link">
+    {props.children}
+    <span className="arrow">
+      <Arrow />
+    </span>
+    <style jsx>{`
+      .link {
+        position: relative;
+      }
+      .arrow {
+        position: absolute;
+        top: 3px;
+        right: -24px;
+        height: 24px;
+        width: 24px;
+      }
+    `}</style>
+  </a>
+)
+
 const Arrow = _ => (
   <svg
     role="img"
@@ -14,8 +35,8 @@ const Arrow = _ => (
   >
     <path d="M16 12l-5-5-1.41 1.41L13.17 12l-3.58 3.59L11 17" />
     <style jsx>{`
-      height: 24px;
-      width: 24px;
+      height: 100%;
+      width: 100%;
       fill: currentColor;
     `}</style>
   </svg>
@@ -124,9 +145,7 @@ export default _ => (
           coding for a more confident development experience? Typing and
           compiling your code can help with that too.
         </p>
-        <a href="">
-          Learn more <Arrow />
-        </a>
+        <ArrowLink href="">Learn more</ArrowLink>
       </article>
       <article>
         <header>
@@ -138,9 +157,7 @@ export default _ => (
           great benefits. Add types in your JavaScript project where you want or
           need them, gradually.
         </p>
-        <a href="https://flow.org/">
-          Official docs <Arrow />
-        </a>
+        <ArrowLink href="https://flow.org/">Official docs</ArrowLink>
       </article>
       <article>
         <header>
@@ -153,9 +170,7 @@ export default _ => (
           in the course of creating a real project.
         </p>
         <ToC />
-        <a href="">
-          Start the course <Arrow />
-        </a>
+        <ArrowLink href="">Start the course</ArrowLink>
       </article>
       <article>
         <header>
@@ -167,17 +182,33 @@ export default _ => (
           galactic treachery and loyal friends. We start with an empty directory
           and end with a small, fully-flowtyped web application.
         </p>
-        <a href="https://github.com/jaketrent/gowiththeflowtype-materials">
-          Github files <Arrow />
-        </a>
+        <ArrowLink href="https://github.com/jaketrent/gowiththeflowtype-materials">
+          Github files
+        </ArrowLink>
       </article>
     </div>
     <style jsx>{`
       .content {
         position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: ${vars.layout.spacingXLarge};
+        width: 100%;
         margin-top: 50vw;
         padding: ${vars.layout.spacingLarge};
         color: ${vars.colors.grayDark};
+        background: ${vars.colors.blueGreen};
+      }
+      @media screen and (min-width: 769px) {
+        .content {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media screen and (min-width: 1201px) {
+        .content {
+          padding: ${vars.layout.spacingXLarge} calc((100vw - 1200px) / 2)
+            ${vars.layout.spacingXLarge} calc((100vw - 1200px) / 2);
+        }
       }
     `}</style>
   </div>
