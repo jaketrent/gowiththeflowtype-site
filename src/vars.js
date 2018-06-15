@@ -2,6 +2,8 @@ export default {
   colors: {
     blue: '#309FB8',
     blueDark: '#147D95',
+    blueGreen: '#7FC1B4',
+    grayDark: '#181818',
     green: '#9DC866',
     white: '#fff'
   },
