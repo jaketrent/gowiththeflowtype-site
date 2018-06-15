@@ -1,0 +1,29 @@
+{
+  "name": "gowiththeflowtype-site",
+  "version": "1.0.0",
+  "description": "",
+  "author": "jaketrent",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^6.0.3",
+    "polished": "^1.9.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaketrent/gowiththeflowtype-site.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/jaketrent/gowiththeflowtype-site/issues"
+  },
+  "homepage": "https://github.com/jaketrent/gowiththeflowtype-site#readme"
+}
