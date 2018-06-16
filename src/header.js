@@ -24,6 +24,30 @@ const Curl = _ => (
   </svg>
 )
 
+const HeaderWaves = _ => (
+  <svg viewBox="0 0 1764 299" xmlns="http://www.w3.org/2000/svg">
+    <path
+      className="curve1"
+      d="M0 138.658s125.34 31.224 288.654 35.36c213.266 5.402 485.238-88.05 761.856-86.417C1327.13 89.233 1764 252.162 1764 252.162V299H0V138.658z"
+    />
+    <path
+      className="curve2"
+      d="M0 140.484S206.655 17.802 369.421 22.696c298.776 8.983 562.612 257.006 894.319 255.28 331.7-1.727 494.34-139.224 500.26-139.224 5.92 0 0 160.248 0 160.248H0V140.484z"
+    />
+    <style jsx>{`
+      position: relative;
+      bottom: -4px;
+      width: 100%;
+      .curve1 {
+        fill: ${transparentize(0.5, vars.colors.green)};
+      }
+      .curve2 {
+        fill: ${transparentize(0.5, vars.colors.blue)};
+      }
+    `}</style>
+  </svg>
+)
+
 export default _ => (
   <header>
     <div className="grid">
@@ -34,22 +58,7 @@ export default _ => (
         <div className="big">FlowType</div>{' '}
       </h1>
     </div>
-    <div className="curves">
-      <svg
-        className="curve curve2"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 500 500"
-      >
-        <path d="M0,210 C195,252 217,136 500,240 L500,500 0,500 Z" />
-      </svg>
-      <svg
-        className="curve curve1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 500 500"
-      >
-        <path d="M0,210 C197,91 251,341 500,210 L500,500 0,500 Z" />
-      </svg>
-    </div>
+    <HeaderWaves />
     <style jsx>{`
       .grid {
         display: grid;
@@ -65,23 +74,6 @@ export default _ => (
       .big {
         font-size: 2.5em;
         line-height: 1.25em;
-      }
-      .curves {
-        position: relative;
-        margin-top: -30vw;
-      }
-      .curve {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        stroke: none;
-      }
-      .curve1 {
-        fill: ${transparentize(0.5, vars.colors.blue)};
-      }
-      .curve2 {
-        fill: ${transparentize(0.5, vars.colors.green)};
       }
       @media screen and (min-width: 769px) {
         .grid {
@@ -99,9 +91,6 @@ export default _ => (
           margin-top: calc(2 * ${vars.layout.spacingXXLarge});
           font-size: 1.75rem;
           line-height: 1.75rem;
-        }
-        .curves {
-          margin-top: -38vw;
         }
       }
     `}</style>

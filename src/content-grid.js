@@ -10,7 +10,6 @@ export default props => (
         grid-template-columns: 1fr;
         gap: ${vars.layout.spacingXLarge};
         width: 100%;
-        margin-top: 50vw;
         padding: ${vars.layout.spacingLarge};
         color: ${vars.colors.grayDark};
         background: ${vars.colors.blueGreen};
