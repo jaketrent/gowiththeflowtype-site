@@ -54,8 +54,13 @@ export default _ => (
       }
       .types {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: ${vars.layout.spacingSmall};
+      }
+      @media screen and (min-width: 1024px) {
+        .types {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
       }
     `}</style>
   </div>
