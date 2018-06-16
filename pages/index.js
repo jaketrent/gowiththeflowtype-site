@@ -1,9 +1,11 @@
+import BlurbHeader from '../src/blurb-header'
 import ContentGrid from '../src/content-grid'
 import Footer from '../src/footer'
 import GlobalStyles from '../src/global-styles'
 import Head from '../src/head'
 import Header from '../src/header'
 import ToC from '../src/toc'
+import Types from '../src/types'
 import vars from '../src/vars'
 
 const ArrowLink = props => (
@@ -46,21 +48,9 @@ const Arrow = _ => (
 
 const Blurb = props => (
   <article>
-    <header>
-      <h2>{props.title}</h2>
-    </header>
+    <BlurbHeader>{props.title}</BlurbHeader>
     <p>{props.children}</p>
     {props.footer}
-    <style jsx>{`
-      h2 {
-        color: ${vars.colors.blueDark};
-      }
-      @media screen and (min-width: 769px) {
-        h2 {
-          font-size: 1.75rem;
-        }
-      }
-    `}</style>
   </article>
 )
 
@@ -99,19 +89,22 @@ export default _ => (
         of Flow. This is seeing those fundamental features used in the course of
         creating a real project.
       </Blurb>
-      <Blurb
-        title="The Project"
-        footer={
-          <ArrowLink href="https://github.com/jaketrent/gowiththeflowtype-materials">
-            Github files
-          </ArrowLink>
-        }
-      >
-        To demonstrate Flow, we make a choose your own adventure game, where the
-        narrative is chosen by the reader over time. It's a silly tale of
-        galactic treachery and loyal friends. We start with an empty directory
-        and end with a small, fully-flowtyped web application.
-      </Blurb>
+      <div>
+        <Blurb
+          title="The Project"
+          footer={
+            <ArrowLink href="https://github.com/jaketrent/gowiththeflowtype-materials">
+              Github files
+            </ArrowLink>
+          }
+        >
+          To demonstrate Flow, we make a choose your own adventure game, where
+          the narrative is chosen by the reader over time. It's a silly tale of
+          galactic treachery and loyal friends. We start with an empty directory
+          and end with a small, fully-flowtyped web application.
+        </Blurb>
+        <Types />
+      </div>
     </ContentGrid>
     <Footer />
   </div>
