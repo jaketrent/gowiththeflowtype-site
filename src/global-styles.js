@@ -24,16 +24,14 @@ export default _ => (
     }
     a {
       display: inline-block;
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px dashed ${vars.colors.yellow};
-      margin-bottom: 2px;
+      color: ${vars.colors.white};
+      text-decoration: underline;
+      text-decoration-style: wavy;
       cursor: pointer;
     }
     a:hover {
-      border-bottom: none;
       color: ${vars.colors.yellow};
-      border-bottom: 1px solid ${vars.colors.yellow};
+      text-decoration-style: solid;
     }
     ol {
       margin: 0;

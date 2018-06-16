@@ -36,7 +36,7 @@ const HeaderWaves = _ => (
     />
     <style jsx>{`
       position: relative;
-      bottom: -4px;
+      bottom: -6px;
       width: 100%;
       .curve1 {
         fill: ${transparentize(0.5, vars.colors.green)};
