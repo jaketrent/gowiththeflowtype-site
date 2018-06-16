@@ -3,25 +3,34 @@ import vars from './vars'
 const now = _ => new Date().getFullYear()
 
 export default _ => (
-  <footer className="footer">
-    <div className="footer-body">
-      <div className="footer-col">
-        <p className="footer-invite">
-          Check out some of my other tech shenanigans by visiting my{' '}
-          <a href="https://github.com/jaketrent">Github</a> or by going to:{' '}
-        </p>
-        <a className="footer-invite-link" href="http://jaketrent.com">
-          jaketrent.com
-        </a>
-      </div>
-      <div className="footer-col footer-col__copy">
-        <div className="footer-copy">
-          Course &copy; {now()} Pluralsight; this page &copy; {now()} Jake Trent{' '}
-          <br />
-          This content uses affiliate links.
+  <div>
+    <svg
+      className="curve"
+      viewBox="0 0 1200 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 57.756c229.371-16.442 349.236 15.983 435.531 14.827 65.209-.874 394.428-47.929 529.092-36.359C1099.29 47.794 1200 75.38 1200 75.38V100H0" />
+    </svg>
+    <footer className="footer">
+      <div className="footer-body">
+        <div className="footer-col">
+          <p className="footer-invite">
+            Check out some of my other tech shenanigans by visiting my{' '}
+            <a href="https://github.com/jaketrent">Github</a> or by going to:{' '}
+          </p>
+          <a className="footer-invite-link" href="http://jaketrent.com">
+            jaketrent.com
+          </a>
+        </div>
+        <div className="footer-col footer-col__copy">
+          <div className="footer-copy">
+            Course &copy; {now()} Pluralsight; this page &copy; {now()} Jake
+            Trent <br />
+            This content uses affiliate links.
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
     <style jsx>{`
       a:hover {
         color: ${vars.colors.yellow};
@@ -32,6 +41,12 @@ export default _ => (
         background: ${vars.colors.blue};
         color: ${vars.colors.white};
       }
+      .curve {
+        width: 100%;
+        fill: ${vars.colors.blue};
+        background: ${vars.colors.blueGreen};
+        margin-bottom: -8px;
+      }
       .footer-body {
         width: 1200px;
         max-width: 100%;
@@ -39,7 +54,6 @@ export default _ => (
         padding: ${vars.layout.spacingLarge};
       }
       .footer-col {
-        margin-bottom: 1em;
       }
       .footer-invite-link {
         font: 0/0 a;
@@ -54,7 +68,6 @@ export default _ => (
       .footer-copy {
         font-size: 0.75em;
         line-height: 1.5em;
-        margin-top: 3em;
       }
       @media screen and (min-width: 769px) {
         .footer-body {
@@ -79,5 +92,5 @@ export default _ => (
         }
       }
     `}</style>
-  </footer>
+  </div>
 )
