@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "author": "jaketrent",
-  "license": "MIT",
+  "license": "LicenseRef-LICENSE",
   "main": "index.js",
   "scripts": {
     "dev": "next",
