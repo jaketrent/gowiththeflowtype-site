@@ -33,6 +33,9 @@ export default _ => (
       color: ${vars.colors.yellow};
       text-decoration-style: solid;
     }
+    svg {
+      fill: currentColor;
+    }
     ol {
       margin: 0;
       padding: 0;

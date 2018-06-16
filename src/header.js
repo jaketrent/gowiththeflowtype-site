@@ -48,10 +48,70 @@ const HeaderWaves = _ => (
   </svg>
 )
 
+const Trial = _ => (
+  <div>
+    <div className="banner">
+      <a className="btn" href="">
+        <svg
+          role="img"
+          aria-label="play icon"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          className="icon"
+        >
+          <path d="M6 21l14-9L6 3" />
+        </svg>
+        Watch the Course
+      </a>
+      <div className="trial">with a free 10-day Pluralsight trial</div>
+    </div>
+    <style jsx>{`
+      .banner {
+        display: flex;
+        align-items: center;
+        margin-top: ${vars.layout.spacingLarge};
+      }
+      .icon {
+        height: 16px;
+        margin-right: ${vars.layout.spacingXXSmall};
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        margin-right: ${vars.layout.spacingSmall};
+        padding: ${vars.layout.spacingXXSmall} ${vars.layout.spacingSmall};
+        border-radius: 4px;
+        background: ${vars.colors.blue};
+        color: ${vars.colors.white}
+        text-shadow: 1px 1px 0 ${vars.colors.darkGray};
+        text-decoration: none;
+        line-height: ${vars.type.lineHeightStandard};
+        white-space: nowrap;
+      }
+      .btn:hover {
+        background: ${vars.colors.blueDark};
+      }
+      .trial {
+        display: inline-block;
+      }
+      @media screen and (min-width: 769px) {
+        .banner {
+          display: block;
+        }
+      }
+      @media screen and (min-width: 1024px) {
+        .banner {
+          display: flex;
+        }
+      }
+    `}</style>
+  </div>
+)
+
 export default _ => (
   <header>
     <div className="grid">
-      <div />
+      <Trial />
       <h1 className="title">
         Go with the
         <Curl />
@@ -64,6 +124,8 @@ export default _ => (
         display: grid;
         grid-template-columns: 1fr;
         padding: 0 ${vars.layout.spacingLarge};
+        max-width: 1200px;
+        margin: 0 auto;
       }
       .title {
         margin-top: ${vars.layout.spacingLarge};
