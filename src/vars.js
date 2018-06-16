@@ -5,7 +5,8 @@ export default {
     blueGreen: '#7FC1B4',
     grayDark: '#181818',
     green: '#9DC866',
-    white: '#fff'
+    white: '#fff',
+    yellow: '#FFC200'
   },
   layout: {
     spacingXXSmall: '4px',

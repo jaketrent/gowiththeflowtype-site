@@ -26,14 +26,14 @@ export default _ => (
       display: inline-block;
       color: #fff;
       text-decoration: none;
-      border-bottom: 1px dashed #889f1e;
+      border-bottom: 1px dashed ${vars.colors.yellow};
       margin-bottom: 2px;
       cursor: pointer;
     }
     a:hover {
       border-bottom: none;
-      color: #889f1e;
-      border-bottom: 1px solid #889f1e;
+      color: ${vars.colors.yellow};
+      border-bottom: 1px solid ${vars.colors.yellow};
     }
     ol {
       margin: 0;

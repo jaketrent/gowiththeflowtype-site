@@ -1,7 +1,7 @@
-import { transparentize } from 'polished'
-
+import Footer from '../src/footer'
 import GlobalStyles from '../src/global-styles'
 import Head from '../src/head'
+import Header from '../src/header'
 import ToC from '../src/toc'
 import vars from '../src/vars'
 
@@ -14,6 +14,7 @@ const ArrowLink = props => (
     <style jsx>{`
       .link {
         position: relative;
+        font-size: 1.125rem;
       }
       .arrow {
         position: absolute;
@@ -42,151 +43,29 @@ const Arrow = _ => (
   </svg>
 )
 
-const Header = _ => (
-  <header className="header">
-    <div className="content">
-      <h1 className="title">
-        Go with the
-        <div className="big">FlowType</div>
-      </h1>
-    </div>
-    <div className="curves">
-      <svg
-        className="curve curve2"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 500 500"
-      >
-        <path d="M0,210 C195,252 217,136 500,240 L500,500 0,500 Z" />
-      </svg>
-      <svg
-        className="curve curve1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 500 500"
-      >
-        <path d="M0,210 C197,91 251,341 500,210 L500,500 0,500 Z" />
-      </svg>
-    </div>
+const Blurb = props => (
+  <article>
+    <header>
+      <h2>{props.title}</h2>
+    </header>
+    <p>{props.children}</p>
+    {props.footer}
     <style jsx>{`
-      .header {
-      }
-      .content {
-        display: flex;
-        justify-content: flex-start;
-      }
-      .title {
-        margin-left: 5vw;
-        margin-top: ${vars.layout.spacingLarge};
-        font-size: 1.5rem;
-        line-height: 1.5rem;
-        text-transform: uppercase;
-      }
-      .big {
-        font-size: 2.5em;
-        line-height: 1.25em;
-      }
-      .curves {
-        position: relative;
-        margin-top: -30vw;
-      }
-      .curve {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        stroke: none;
-      }
-      .curve1 {
-        fill: ${transparentize(0.5, vars.colors.blue)};
-      }
-      .curve2 {
-        fill: ${transparentize(0.5, vars.colors.green)};
+      h2 {
+        color: ${vars.colors.blueDark};
       }
       @media screen and (min-width: 769px) {
-        .content {
-          justify-content: flex-end;
-        }
-        .title {
-          margin-right: 15vw;
-          margin-top: ${vars.layout.spacingXXLarge};
-          font-size: 2rem;
-          line-height: 2rem;
-        }
-      }
-      @media screen and (min-width: 1441px) {
-        .title {
-          margin-right: 20vw;
-          margin-top: calc(2 * ${vars.layout.spacingXXLarge});
+        h2 {
           font-size: 1.75rem;
-          line-height: 1.75rem;
-        }
-        .curves {
-          margin-top: -38vw;
         }
       }
     `}</style>
-  </header>
+  </article>
 )
 
-export default _ => (
-  <div>
-    <Head />
-    <GlobalStyles />
-    <Header />
-    <div className="content">
-      <article>
-        <header>
-          <h2>Why types?</h2>
-        </header>
-        <p>
-          Want to know if your program is correct before you ship it to the
-          browser? Types can help you know if your code integrates well
-          together. Want more insight into developer intent when reading code?
-          Types can help expose that better. Want more feedback while your
-          coding for a more confident development experience? Typing and
-          compiling your code can help with that too.
-        </p>
-        <ArrowLink href="">Learn more</ArrowLink>
-      </article>
-      <article>
-        <header>
-          <h2>Why Flow?</h2>
-        </header>
-        <p>
-          Flow, or Flowtype, is a strong, static typing system for JavaScript.
-          Keep your language, your toolchain, your talent pool, and get some
-          great benefits. Add types in your JavaScript project where you want or
-          need them, gradually.
-        </p>
-        <ArrowLink href="https://flow.org/">Official docs</ArrowLink>
-      </article>
-      <article>
-        <header>
-          <h2>Take the Course</h2>
-        </header>
-        <p>
-          Hear the quick pitch on Flow and then see Flow in action in a
-          real-world project environment. This isn't an academic review of all
-          the features of Flow. This is seeing those fundamental features used
-          in the course of creating a real project.
-        </p>
-        <ToC />
-        <ArrowLink href="">Start the course</ArrowLink>
-      </article>
-      <article>
-        <header>
-          <h2>The Project</h2>
-        </header>
-        <p>
-          To demonstrate Flow, we make a choose your own adventure game, where
-          the narrative is chosen by the reader over time. It's a silly tale of
-          galactic treachery and loyal friends. We start with an empty directory
-          and end with a small, fully-flowtyped web application.
-        </p>
-        <ArrowLink href="https://github.com/jaketrent/gowiththeflowtype-materials">
-          Github files
-        </ArrowLink>
-      </article>
-    </div>
+const Content = props => (
+  <div className="content">
+    {props.children}
     <style jsx>{`
       .content {
         position: relative;
@@ -202,6 +81,7 @@ export default _ => (
       @media screen and (min-width: 769px) {
         .content {
           grid-template-columns: 1fr 1fr;
+          gap: ${vars.layout.spacingXLarge};
         }
       }
       @media screen and (min-width: 1201px) {
@@ -211,5 +91,58 @@ export default _ => (
         }
       }
     `}</style>
+  </div>
+)
+
+export default _ => (
+  <div>
+    <Head />
+    <GlobalStyles />
+    <Header />
+    <Content>
+      <Blurb
+        title="Why types?"
+        footer={<ArrowLink href="">Learn more</ArrowLink>}
+      >
+        Want to know if your program is correct before you ship it to the
+        browser? Types can help you know if your code integrates well together.
+        Want more insight into developer intent when reading code? Types can
+        help expose that better. Want more feedback while your coding for a more
+        confident development experience? Typing and compiling your code can
+        help with that too.
+      </Blurb>
+      <Blurb
+        title="Why Flow?"
+        footer={<ArrowLink href="https://flow.org/">Official docs</ArrowLink>}
+      >
+        Flow, or Flowtype, is a strong, static typing system for JavaScript.
+        Keep your language, your toolchain, your talent pool, and get some great
+        benefits. Add types in your JavaScript project where you want or need
+        them, gradually.
+      </Blurb>
+      <Blurb
+        title="Take the Course"
+        footer={[<ToC />, <ArrowLink href="">Start the course</ArrowLink>]}
+      >
+        Hear the quick pitch on Flow and then see Flow in action in a real-world
+        project environment. This isn't an academic review of all the features
+        of Flow. This is seeing those fundamental features used in the course of
+        creating a real project.
+      </Blurb>
+      <Blurb
+        title="The Project"
+        footer={
+          <ArrowLink href="https://github.com/jaketrent/gowiththeflowtype-materials">
+            Github files
+          </ArrowLink>
+        }
+      >
+        To demonstrate Flow, we make a choose your own adventure game, where the
+        narrative is chosen by the reader over time. It's a silly tale of
+        galactic treachery and loyal friends. We start with an empty directory
+        and end with a small, fully-flowtyped web application.
+      </Blurb>
+    </Content>
+    <Footer />
   </div>
 )
