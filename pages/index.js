@@ -1,3 +1,4 @@
+import ContentGrid from '../src/content-grid'
 import Footer from '../src/footer'
 import GlobalStyles from '../src/global-styles'
 import Head from '../src/head'
@@ -63,43 +64,12 @@ const Blurb = props => (
   </article>
 )
 
-const Content = props => (
-  <div className="content">
-    {props.children}
-    <style jsx>{`
-      .content {
-        position: relative;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: ${vars.layout.spacingXLarge};
-        width: 100%;
-        margin-top: 50vw;
-        padding: ${vars.layout.spacingLarge};
-        color: ${vars.colors.grayDark};
-        background: ${vars.colors.blueGreen};
-      }
-      @media screen and (min-width: 769px) {
-        .content {
-          grid-template-columns: 1fr 1fr;
-          gap: ${vars.layout.spacingXLarge};
-        }
-      }
-      @media screen and (min-width: 1201px) {
-        .content {
-          padding: ${vars.layout.spacingXLarge} calc((100vw - 1200px) / 2)
-            ${vars.layout.spacingXLarge} calc((100vw - 1200px) / 2);
-        }
-      }
-    `}</style>
-  </div>
-)
-
 export default _ => (
   <div>
     <Head />
     <GlobalStyles />
     <Header />
-    <Content>
+    <ContentGrid>
       <Blurb
         title="Why types?"
         footer={<ArrowLink href="">Learn more</ArrowLink>}
@@ -142,7 +112,7 @@ export default _ => (
         galactic treachery and loyal friends. We start with an empty directory
         and end with a small, fully-flowtyped web application.
       </Blurb>
-    </Content>
+    </ContentGrid>
     <Footer />
   </div>
 )
