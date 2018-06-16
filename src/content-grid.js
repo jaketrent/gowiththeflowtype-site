@@ -21,7 +21,7 @@ export default props => (
           gap: ${vars.layout.spacingXLarge};
         }
       }
-      @media screen and (min-width: 1201px) {
+      @media screen and (min-width: 1261px) {
         .content {
           padding: ${vars.layout.spacingXLarge} calc((100vw - 1200px) / 2)
             ${vars.layout.spacingXLarge} calc((100vw - 1200px) / 2);

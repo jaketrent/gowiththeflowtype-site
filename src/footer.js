@@ -51,8 +51,6 @@ export default _ => (
         width: 250px;
         border: 1px solid transparent;
       }
-      .footer-invite-link:hover {
-      }
       .footer-copy {
         font-size: 0.75em;
         line-height: 1.5em;
@@ -73,6 +71,11 @@ export default _ => (
           justify-content: flex-end;
           align-items: flex-end;
           text-align: right;
+        }
+      }
+      @media screen and (min-width: 1261px) {
+        .footer-body {
+          padding: ${vars.layout.spacingLarge} 0;
         }
       }
     `}</style>
