@@ -65,7 +65,7 @@ export default _ => (
     <footer className="footer">
       <Bubbles />
       <div className="footer-body">
-        <div className="footer-col">
+        <div>
           <p className="footer-invite">
             Check out some of my other tech shenanigans by visiting my{' '}
             <a href="https://github.com/jaketrent">Github</a> or by going to:{' '}
@@ -74,8 +74,8 @@ export default _ => (
             jaketrent.com
           </a>
         </div>
-        <div className="footer-col footer-col__copy">
-          <div className="footer-copy">
+        <div>
+          <div className="copyright">
             Course &copy; {now()} Pluralsight; this page &copy; {now()} Jake
             Trent <br />
             This content uses affiliate links.
@@ -104,6 +104,9 @@ export default _ => (
         position: relative;
         width: 1200px;
         max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: ${vars.layout.spacingLarge};
         margin: 0 auto;
         padding: ${vars.layout.spacingLarge};
       }
@@ -118,24 +121,19 @@ export default _ => (
         border: 1px solid transparent;
         margin-bottom: ${vars.layout.spacingLarge};
       }
-      .footer-copy {
-        font-size: 0.75em;
-        line-height: 1.125em;
+      .copyright {
+        font-size: 0.75rem;
+        line-height: 1.125rem;
       }
       @media screen and (min-width: 769px) {
         .footer-body {
-          display: flex;
+          grid-template-columns: 1fr 1fr;
         }
-        .footer-col {
-          flex: 1;
-        }
-        .footer-col + .footer-col {
-          margin-left: 1.25em;
-        }
-        .footer-col__copy {
+        .copyright {
           display: flex;
           justify-content: flex-end;
           align-items: flex-end;
+          height: 100%;
           text-align: right;
         }
       }
