@@ -16,6 +16,8 @@ const ArrowLink = props => (
     </span>
     <style jsx>{`
       .link {
+        display: inline-block;
+        margin-right: ${vars.layout.spacingXLarge};
         position: relative;
         font-size: 1.125rem;
       }
@@ -93,9 +95,12 @@ export default _ => (
         <Blurb
           title="The Project"
           footer={
-            <ArrowLink href="https://github.com/jaketrent/gowiththeflowtype-materials">
-              Github files
-            </ArrowLink>
+            <div>
+              <ArrowLink href="https://github.com/jaketrent/gowiththeflowtype-materials">
+                Github files
+              </ArrowLink>
+              <ArrowLink href="/demo">Learn more</ArrowLink>
+            </div>
           }
         >
           To demonstrate Flow, we make a choose your own adventure game, where
