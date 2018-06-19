@@ -1,13 +1,11 @@
 import { transparentize } from 'polished'
 
 import BlurbHeader from '../src/blurb-header'
-import Content from '../src/content'
 import ContentGrid from '../src/content-grid'
 import Footer from '../src/footer'
 import GlobalStyles from '../src/global-styles'
 import Head from '../src/head'
 import Header from '../src/header'
-import PageHeader from '../src/page-header'
 import ToC from '../src/toc'
 import Types from '../src/types'
 import vars from '../src/vars'
@@ -32,30 +30,6 @@ const ArrowLink = props => (
       }
     `}</style>
   </a>
-)
-
-const HeaderWaves = _ => (
-  <svg viewBox="0 0 1764 299" xmlns="http://www.w3.org/2000/svg">
-    <path
-      className="curve1"
-      d="M0 138.658s125.34 31.224 288.654 35.36c213.266 5.402 485.238-88.05 761.856-86.417C1327.13 89.233 1764 252.162 1764 252.162V299H0V138.658z"
-    />
-    <path
-      className="curve2"
-      d="M0 140.484S206.655 17.802 369.421 22.696c298.776 8.983 562.612 257.006 894.319 255.28 331.7-1.727 494.34-139.224 500.26-139.224 5.92 0 0 160.248 0 160.248H0V140.484z"
-    />
-    <style jsx>{`
-      position: relative;
-      width: 100%;
-      margin: 0;
-      .curve1 {
-        fill: ${transparentize(0.5, vars.colors.green)};
-      }
-      .curve2 {
-        fill: ${transparentize(0.5, vars.colors.blue)};
-      }
-    `}</style>
-  </svg>
 )
 
 const Octocat = _ => (
@@ -97,59 +71,54 @@ export default _ => (
     <Head />
     <GlobalStyles />
     <Header />
-    <HeaderWaves />
-    <Content>
-      <PageHeader>The Demo</PageHeader>
-      <ContentGrid>
-        <Blurb title="Download">
-          <p>Grab the files for yourself so you can follow along.</p>
-          <a
-            className="download"
-            href="https://github.com/jaketrent/gowiththeflowtype-materials"
-          >
-            <Octocat />
-            Github files
-          </a>
-          <p>
-            Demo files are provided as-is, but they should be a handy reference
-            and in a working state so that you can see the principles and
-            examples of the course in action on your own machine.
-          </p>
-          <p>
-            Download 'em, start from scratch like I do in the course and follow
-            along or cut and paste key bits at milestones in the project.
-            Whatever suits you!
-          </p>
-          <p>
-            To really{' '}
-            <a href="https://jaketrent.com/post/lock-in-learning/">
-              lock in your learning
-            </a>, hands-on application is key.
-          </p>
-        </Blurb>
-        <Blurb title="Our Project">
-          <img src="/static/img/screenshot.jpg" className="screenshot" />
-          <p>
-            Together we build a web application that is a choose your own
-            adventure game, entitle "Galactic Pigs: A Prelude". It is the lore
-            and background story for a tabletop game that the Cub Scouts I lead
-            designed. Pigs were always meant to be galactic.
-          </p>
-          <p>
-            It is a simple web application, essentially all UI (but the same
-            Flow skills apply to Node). We start from the very beginning so you
-            don't miss anything in how to setup and run your own projects with
-            Flow. We use what are meant to be generic tools and libraries (not
-            the latest hotness) so they don't become the focus of the course and
-            to see that Flow is usable across many different JavaScript
-            libraries.
-          </p>
-          <p>
-            <a href="">Join me and code along</a> !
-          </p>
-        </Blurb>
-      </ContentGrid>
-    </Content>
+    <ContentGrid>
+      <Blurb title="Download the Demo">
+        <p>Grab the files for yourself so you can follow along.</p>
+        <a
+          className="download"
+          href="https://github.com/jaketrent/gowiththeflowtype-materials"
+        >
+          <Octocat />
+          Github files
+        </a>
+        <p>
+          Demo files are provided as-is, but they should be a handy reference
+          and in a working state so that you can see the principles and examples
+          of the course in action on your own machine.
+        </p>
+        <p>
+          Download 'em, start from scratch like I do in the course and follow
+          along or cut and paste key bits at milestones in the project. Whatever
+          suits you!
+        </p>
+        <p>
+          To really{' '}
+          <a href="https://jaketrent.com/post/lock-in-learning/">
+            lock in your learning
+          </a>, hands-on application is key.
+        </p>
+      </Blurb>
+      <Blurb title="Our Project">
+        <img src="/static/img/screenshot.jpg" className="screenshot" />
+        <p>
+          Together we build a web application that is a choose your own
+          adventure game, entitle "Galactic Pigs: A Prelude". It is the lore and
+          background story for a tabletop game that the Cub Scouts I lead
+          designed. Pigs were always meant to be galactic.
+        </p>
+        <p>
+          It is a simple web application, essentially all UI (but the same Flow
+          skills apply to Node). We start from the very beginning so you don't
+          miss anything in how to setup and run your own projects with Flow. We
+          use what are meant to be generic tools and libraries (not the latest
+          hotness) so they don't become the focus of the course and to see that
+          Flow is usable across many different JavaScript libraries.
+        </p>
+        <p>
+          <a href="">Join me and code along</a> !
+        </p>
+      </Blurb>
+    </ContentGrid>
     <Footer />
     <style jsx>{`
       .screenshot {
