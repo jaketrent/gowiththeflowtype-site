@@ -193,11 +193,11 @@ export default _ => (
           title="The Project"
           footer={
             <div>
-              <ArrowLink href="/demo">Learn more</ArrowLink>
+              <ArrowLink href="/demo/">Learn more</ArrowLink>
               <ArrowLink href="https://github.com/jaketrent/gowiththeflowtype-materials">
                 Github files
               </ArrowLink>
-              <ArrowLink href="/editors">Editors</ArrowLink>
+              <ArrowLink href="/editors/">Editors</ArrowLink>
             </div>
           }
         >

@@ -97,7 +97,7 @@ export default _ => (
         >
           <p>
             My personal favorite for JavaScript-Flow projects. Used in the
-            course.
+            <a href="">course</a>.
           </p>
         </Editor>
         <Editor
