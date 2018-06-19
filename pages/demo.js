@@ -1,36 +1,13 @@
 import { transparentize } from 'polished'
 
+import ArrowLink from '../src/arrow-link'
 import BlurbHeader from '../src/blurb-header'
 import ContentGrid from '../src/content-grid'
 import Footer from '../src/footer'
 import GlobalStyles from '../src/global-styles'
 import Head from '../src/head'
 import Header from '../src/header'
-import ToC from '../src/toc'
-import Types from '../src/types'
 import vars from '../src/vars'
-
-const ArrowLink = props => (
-  <a href={props.href} className="link">
-    {props.children}
-    <span className="arrow">
-      <Arrow />
-    </span>
-    <style jsx>{`
-      .link {
-        position: relative;
-        font-size: 1.125rem;
-      }
-      .arrow {
-        position: absolute;
-        top: 3px;
-        right: -24px;
-        height: 24px;
-        width: 24px;
-      }
-    `}</style>
-  </a>
-)
 
 const Octocat = _ => (
   <svg viewBox="0 0 16 16" version="1.1" aria-hidden="true">
@@ -38,22 +15,6 @@ const Octocat = _ => (
     <style jsx>{`
       height: 0.75em;
       margin-right: 0.25em;
-    `}</style>
-  </svg>
-)
-
-const Arrow = _ => (
-  <svg
-    role="img"
-    aria-label="caret right icon"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M16 12l-5-5-1.41 1.41L13.17 12l-3.58 3.59L11 17" />
-    <style jsx>{`
-      height: 100%;
-      width: 100%;
-      fill: currentColor;
     `}</style>
   </svg>
 )

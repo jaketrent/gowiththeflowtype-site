@@ -1,57 +1,11 @@
+import ArrowLink from '../src/arrow-link'
 import BlurbHeader from '../src/blurb-header'
 import ContentGrid from '../src/content-grid'
 import Footer from '../src/footer'
 import GlobalStyles from '../src/global-styles'
 import Head from '../src/head'
 import Header from '../src/header'
-import PageHeader from '../src/page-header'
-import ToC from '../src/toc'
-import Types from '../src/types'
 import vars from '../src/vars'
-
-const ArrowLink = props => (
-  <a href={props.href} className="link">
-    {props.children}
-    <span className="arrow">
-      <Arrow />
-    </span>
-    <style jsx>{`
-      .link {
-        position: relative;
-        font-size: 1.125rem;
-      }
-      .arrow {
-        position: absolute;
-        top: 3px;
-        right: -24px;
-        height: 24px;
-        width: 24px;
-      }
-    `}</style>
-  </a>
-)
-
-const Octocat = _ => (
-  <svg viewBox="0 0 16 16" version="1.1" aria-hidden="true">
-    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-  </svg>
-)
-
-const Arrow = _ => (
-  <svg
-    role="img"
-    aria-label="caret right icon"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M16 12l-5-5-1.41 1.41L13.17 12l-3.58 3.59L11 17" />
-    <style jsx>{`
-      height: 100%;
-      width: 100%;
-      fill: currentColor;
-    `}</style>
-  </svg>
-)
 
 const Blurb = props => (
   <article>
@@ -61,21 +15,133 @@ const Blurb = props => (
   </article>
 )
 
+const Editor = props => (
+  <article>
+    <div className="grid">
+      <a href={props.href}>
+        <img alt={props.title + ' logo'} className="img" src={props.img} />
+      </a>
+      <div>
+        <BlurbHeader>
+          <a href={props.href}>{props.title}</a>
+        </BlurbHeader>
+        <p>{props.children}</p>
+        <div>
+          {props.instructions ? (
+            props.instructions.map((inst, i) => (
+              <ArrowLink key={inst} href={inst}>
+                Notes #{i}
+              </ArrowLink>
+            ))
+          ) : (
+            <a href="https://github.com/jaketrent/gowiththeflowtype-site/issues/new">
+              Notes needed
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+    <style jsx>{`
+      article {
+        padding-bottom: ${vars.layout.spacingLarge};
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: ${vars.layout.spacingLarge};
+        padding: ${vars.layout.spacingLarge} 0;
+      }
+      .img {
+        width: 200px;
+      }
+    `}</style>
+  </article>
+)
+
 export default _ => (
   <div>
     <Head />
     <GlobalStyles />
     <Header />
-    <div>
-      <PageHeader>The Demo</PageHeader>
-      <a
-        className="download"
-        href="https://github.com/jaketrent/gowiththeflowtype-materials"
-      >
-        <Octocat />
-        Github files
-      </a>
-    </div>
+    <ContentGrid>
+      <Blurb title="Many Editors">
+        <p>
+          Everyone has their own favorite editor. Flow works in many of them.
+          But Flow doesn't seem to work wonderfully in any of them. Flow is
+          optimized for use as a{' '}
+          <a href="https://www.npmjs.com/package/flow-bin">CLI</a>.
+        </p>
+        <p>
+          If, however, you'd like to setup some editor integration with Flow,
+          please check here for some of the latest tips and setups for editors
+          that you maybe using.
+        </p>
+        <p>
+          If you come up with a good setup yourself, please{' '}
+          <a href="https://github.com/jaketrent/gowiththeflowtype-site/issues/new">
+            share
+          </a>{' '}
+          a link to your content or the steps themselves, and we'll try to get
+          them added.
+        </p>
+      </Blurb>
+      <div>
+        <Editor
+          title="Spacemacs"
+          img="/static/img/editors/spacemacs.png"
+          href="http://spacemacs.org/"
+          instructions={[
+            'https://jaketrent.com/post/spacemacs-flowtype-integration/',
+            'https://gist.github.com/jaketrent/c86eaba383e1bef31c5cca7ad07343e9'
+          ]}
+        >
+          <p>
+            My personal favorite for JavaScript-Flow projects. Used in the
+            course.
+          </p>
+        </Editor>
+        <Editor
+          title="VS Code"
+          img="/static/img/editors/vscode.png"
+          href="https://code.visualstudio.com/"
+          instructions={['https://github.com/flowtype/flow-for-vscode']}
+        >
+          <p>
+            Some intellisense, go to def, type info on hover. Plugin currently
+            being revamped.
+          </p>
+        </Editor>
+        <Editor
+          title="vim"
+          img="/static/img/editors/vim.png"
+          href="https://www.vim.org/"
+          instructions={['https://github.com/flowtype/vim-flow']}
+        >
+          <p>The editor that's everywhere, now with Flow.</p>
+        </Editor>
+        <Editor
+          title="Webstorm"
+          img="/static/img/editors/webstorm.png"
+          href="https://www.jetbrains.com/webstorm/"
+          instructions={[
+            'https://www.jetbrains.com/help/webstorm/2017.1/flow-type-checker.html'
+          ]}
+        >
+          <p>Not free, but a nice IDE.</p>
+        </Editor>
+        <Editor
+          title="Atom"
+          img="/static/img/editors/atom.png"
+          href="https://atom.io/"
+          instructions={['https://atom.io/packages/ide-flowtype']}
+        >
+          <p>
+            Plugin should be promising, written by Facebook. I'm interested in
+            your mileage with this one.
+          </p>
+        </Editor>
+      </div>
+    </ContentGrid>
     <Footer />
   </div>
 )

@@ -1,52 +1,13 @@
+import { transparentize } from 'polished'
+
+import ArrowLink from '../src/arrow-link'
 import BlurbHeader from '../src/blurb-header'
 import ContentGrid from '../src/content-grid'
 import Footer from '../src/footer'
 import GlobalStyles from '../src/global-styles'
 import Head from '../src/head'
 import Header from '../src/header'
-import ToC from '../src/toc'
-import Types from '../src/types'
 import vars from '../src/vars'
-
-const ArrowLink = props => (
-  <a href={props.href} className="link">
-    {props.children}
-    <span className="arrow">
-      <Arrow />
-    </span>
-    <style jsx>{`
-      .link {
-        display: inline-block;
-        margin-right: ${vars.layout.spacingXLarge};
-        position: relative;
-        font-size: 1.125rem;
-      }
-      .arrow {
-        position: absolute;
-        top: 3px;
-        right: -24px;
-        height: 24px;
-        width: 24px;
-      }
-    `}</style>
-  </a>
-)
-
-const Arrow = _ => (
-  <svg
-    role="img"
-    aria-label="caret right icon"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M16 12l-5-5-1.41 1.41L13.17 12l-3.58 3.59L11 17" />
-    <style jsx>{`
-      height: 100%;
-      width: 100%;
-      fill: currentColor;
-    `}</style>
-  </svg>
-)
 
 const Blurb = props => (
   <article>
@@ -54,6 +15,142 @@ const Blurb = props => (
     <p>{props.children}</p>
     {props.footer}
   </article>
+)
+
+const ToCItem = props => (
+  <div className="listItem">
+    <a className="link" href={props.link}>
+      {props.name}
+    </a>
+    <p className="time">{props.time}</p>
+    <style jsx>{`
+      .listItem {
+        display: flex;
+        justify-content: space-between;
+        margin: .8em 0;
+      }
+      .time {
+        margin: 0;
+      }
+    }
+    `}</style>
+  </div>
+)
+
+const ToC = _ => (
+  <div className="table">
+    <ToCItem
+      name="Find a Place for Types and Flow"
+      time="9:39"
+      link="http://bit.ly/jaketrent-stylingreact-module1"
+    />
+    <ToCItem
+      name="Setup Your Project for Flow"
+      time="11:26"
+      link="http://bit.ly/jaketrent-stylingreact-module2"
+    />
+    <ToCItem
+      name="Start Your Project with Flow Types"
+      time="40:00"
+      link="http://bit.ly/jaketrent-stylingreact-module3"
+    />
+    <ToCItem
+      name="Add Flow Types to Your Existing Project"
+      time="32:08"
+      link="http://bit.ly/jaketrent-stylingreact-module4"
+    />
+    <ToCItem
+      name="Use Flow with Packages"
+      time="11:08"
+      link="http://bit.ly/jaketrent-stylingreact-module5"
+    />
+    <div className="totalContainer">
+      <p className="total">Total Time</p>
+      <p className="time">1h 44m</p>
+    </div>
+    <style jsx>{`
+      .table {
+        border-top: 4px solid ${transparentize(0.5, vars.colors.blue)};
+        border-bottom: 4px solid ${transparentize(0.5, vars.colors.blue)};
+        padding: ${vars.layout.spacingMedium} 0;
+        margin-bottom: ${vars.layout.spacingLarge};
+      }
+      .totalContainer {
+        display: flex;
+        justify-content: flex-end;
+        margin: 2em 0 0 0;
+      }
+      .total {
+        margin: 0 1em 0 0;
+      }
+      .time {
+        margin: 0 0 0 2em;
+      }
+    `}</style>
+  </div>
+)
+
+const Type = props => (
+  <div className="type">
+    {props.children}
+    <style jsx>{`
+      .type {
+        display: inline-block;
+        border-radius: 6px;
+        padding: ${vars.layout.spacingXSmall} ${vars.layout.spacingMedium};
+        background: ${transparentize(0.5, vars.colors.blue)};
+        text-align: center;
+        color: ${vars.colors.white};
+        text-shadow: 1px 1px 0 ${transparentize(0.5, vars.colors.grayDark)};
+        border: 1px solid ${vars.colors.yellow};
+      }
+    `}</style>
+  </div>
+)
+
+const Types = _ => (
+  <div>
+    <div className="header">
+      <BlurbHeader>Types You'll Learn</BlurbHeader>
+    </div>
+    <div className="types">
+      <Type>any</Type>
+      <Type>object</Type>
+      <Type>primitive</Type>
+      <Type>array</Type>
+      <Type>function</Type>
+      <Type>mixed</Type>
+      <Type>module</Type>
+      <Type>maybe</Type>
+      <Type>variable</Type>
+      <Type>inference</Type>
+      <Type>type alias</Type>
+      <Type>generic</Type>
+      <Type>class</Type>
+      <Type>interface</Type>
+      <Type>intersection</Type>
+      <Type>tuple</Type>
+      <Type>literal</Type>
+      <Type>type cast</Type>
+      <Type>union</Type>
+      <Type>libdef</Type>
+    </div>
+    <style jsx>{`
+      .header {
+        padding: ${vars.layout.spacingXLarge} 0 ${vars.layout.spacingLarge} 0;
+      }
+      .types {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: ${vars.layout.spacingSmall};
+      }
+      @media screen and (min-width: 1024px) {
+        .types {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+      }
+    `}</style>
+  </div>
 )
 
 export default _ => (
@@ -96,10 +193,11 @@ export default _ => (
           title="The Project"
           footer={
             <div>
+              <ArrowLink href="/demo">Learn more</ArrowLink>
               <ArrowLink href="https://github.com/jaketrent/gowiththeflowtype-materials">
                 Github files
               </ArrowLink>
-              <ArrowLink href="/demo">Learn more</ArrowLink>
+              <ArrowLink href="/editors">Editors</ArrowLink>
             </div>
           }
         >
