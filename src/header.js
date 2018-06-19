@@ -113,9 +113,11 @@ export default _ => (
     <div className="grid">
       <Trial />
       <h1 className="title">
-        Go with the
-        <Curl />
-        <div className="big">FlowType</div>{' '}
+        <a className="title-link" href="/">
+          Go with the
+          <Curl />
+          <div className="big">FlowType</div>{' '}
+        </a>
       </h1>
     </div>
     <HeaderWaves />
@@ -132,6 +134,10 @@ export default _ => (
         font-size: 1.5rem;
         line-height: 1.5rem;
         text-transform: uppercase;
+      }
+      .title-link {
+        color: inherit;
+        text-decoration: none;
       }
       .big {
         font-size: 2.5em;
