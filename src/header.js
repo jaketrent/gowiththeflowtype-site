@@ -51,7 +51,7 @@ const HeaderWaves = _ => (
 const Trial = _ => (
   <div>
     <div className="banner">
-      <a className="btn" href="">
+      <a className="btn" href="http://bit.ly/jaketrent-flowtype-course">
         <svg
           role="img"
           aria-label="play icon"

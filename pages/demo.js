@@ -76,7 +76,10 @@ export default _ => (
           Flow is usable across many different JavaScript libraries.
         </p>
         <p>
-          <a href="">Join me and code along</a> !
+          <a href="http://bit.ly/jaketrent-flowtype-course">
+            Join me and code along
+          </a>{' '}
+          !
         </p>
       </Blurb>
     </ContentGrid>

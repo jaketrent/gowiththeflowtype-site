@@ -42,27 +42,27 @@ const ToC = _ => (
     <ToCItem
       name="Find a Place for Types and Flow"
       time="9:39"
-      link="http://bit.ly/jaketrent-stylingreact-module1"
+      link="http://bit.ly/jaketrent-flowtype-course"
     />
     <ToCItem
       name="Setup Your Project for Flow"
       time="11:26"
-      link="http://bit.ly/jaketrent-stylingreact-module2"
+      link="http://bit.ly/jaketrent-flowtype-course"
     />
     <ToCItem
       name="Start Your Project with Flow Types"
       time="40:00"
-      link="http://bit.ly/jaketrent-stylingreact-module3"
+      link="http://bit.ly/jaketrent-flowtype-course"
     />
     <ToCItem
       name="Add Flow Types to Your Existing Project"
       time="32:08"
-      link="http://bit.ly/jaketrent-stylingreact-module4"
+      link="http://bit.ly/jaketrent-flowtype-course"
     />
     <ToCItem
       name="Use Flow with Packages"
       time="11:08"
-      link="http://bit.ly/jaketrent-stylingreact-module5"
+      link="http://bit.ly/jaketrent-flowtype-course"
     />
     <div className="totalContainer">
       <p className="total">Total Time</p>
@@ -161,7 +161,11 @@ export default _ => (
     <ContentGrid>
       <Blurb
         title="Why types?"
-        footer={<ArrowLink href="">Learn more</ArrowLink>}
+        footer={
+          <ArrowLink href="http://bit.ly/jaketrent-flowtype-course">
+            Learn more
+          </ArrowLink>
+        }
       >
         Want to know if your program is correct before you ship it to the
         browser? Types can help you know if your code integrates well together.
@@ -181,7 +185,12 @@ export default _ => (
       </Blurb>
       <Blurb
         title="Take the Course"
-        footer={[<ToC />, <ArrowLink href="">Start the course</ArrowLink>]}
+        footer={[
+          <ToC />,
+          <ArrowLink href="http://bit.ly/jaketrent-flowtype-course">
+            Start the course
+          </ArrowLink>
+        ]}
       >
         Hear the quick pitch on Flow and then see Flow in action in a real-world
         project environment. This isn't an academic review of all the features
